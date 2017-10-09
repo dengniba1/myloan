@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>融360金融直销平台,信贷经理登录</title>
+
+    <link rel="stylesheet" th:href="@{/css/login/style.css}" />
+    <script th:src="@{/js/jquery-1.8.3.js}"></script>
+    <script th:src="@{/js/login/script.js}"></script>
+
+	<style>
+        .verify input{
+             float: left;
+         }
+        .verify img{
+            float: right;
+            margin-right: 18px;
+            margin-top:10px
+        }
+        label {
+            color: #CCCCCC;
+            padding: 5px;
+            *padding-top:5px !important;
+            *padding-top:10px;
+            position: absolute;
+            cursor:text;
+        }
+        .block-msg-box div{
+            margin:0 auto;
+            text-align:center;
+            width:300px;
+        }
+        .block-msg-box div h1{
+            color: red;
+            font-size: 22px;
+            padding: 30px 0;
+        }
+        .block-msg-box div p{
+            font-size: 18px;
+            padding: 10px 0;
+        }
+	</style>
+</head>
+<body>
+	<div class="top">
+        <img src="http://s0.rong360.com/upload/png/18/02/18020993de7f431079486d74ac055832.png" alt="" class="logo"/>
+	</div>
+	<div class="login">
+        <div class="login-box">
+            <img src="login/static/assets/bd/bj2.png" alt="" style="float: left"/>
+            <div class="box">
+                <ul class="tabNav clearfix">
+                    <li>
+                        <h2 class="one-h2" style="margin-left: 2px">快速注册</h2>
+                    </li>
+                    <li>
+                        <h2 class="two-h2">已有账户</h2>
+                    </li>
+                    <div class="one">
+                    	<img src="login/static/assets/bd/zuce-key.png" alt="" class="key"/>
+                            <form id="f1" method="post" action="@{/login}">
+                            	<input type="hidden" name="platform" value="pc" />
+                                <input type="hidden" name="pc_zhuCeJiShiTime" id="pc_zhuCeJiShiTime" value="0"/>
+                                <p>
+                                   <span class="span" style="display:block;margin-top:12px">
+                                       <img src="login/static/assets/bd/phone-ico.png" alt="" class="phone-ico"/>&nbsp;&nbsp;&nbsp;手机号
+                                   </span>
+                                    <input type="text" name="zcmoblie" class="phone-input" placeholder="注册手机号" style="width:185px;+width:175px;margin-top:-40px;+margin-top:-33px;margin-left: 113px;+margin-left: 85px;"/>
+                                    <input type="hidden" name="step" value="0"/>
+                                </p>
+                                <p>
+                                   <span class="span" style="display:block;margin-top:12px">
+                                       <img src="login/static/assets/bd/psd-ico.png" alt="" class="phone-ico"/>&nbsp;&nbsp;&nbsp;密码
+                                   </span>
+                                   <input type="password" name="zcpswd" id="zcpswd" class="pad-input" placeholder="密码(6~20位数字及字母组成)" style="width:185px;+width:175px;margin-top:-40px;+margin-top:-33px;margin-left: 113px;+margin-left: 85px;"/>
+                                </p>
+                                <p class="yzm-p">
+                                   <span class="yz-span">
+                                       <img src="login/static/assets/bd/yzm-ico.png" alt="" class="yzm-ico"/>
+                                   </span>
+                                    <input class="yzm-input" maxlength="4" id="verifyCode"  type="text" name="verifyCode" value="" autocomplete="off"/>
+                                </p>
+                                <img id="verifyPic" name="verifyPic1" width="95" height="38" src="" style="float: left;margin-left: 204px; margin-top: -37px; +margin-top: -44px"/>
+                                <p class="yzm-p">
+						            <span class="yz-span">
+						            	<img src="login/static/assets/bd/yzm-ico.png" alt="" class="yzm-ico"/>
+						            </span>
+						            <input class="yzm-input" maxlength="6" id="mobile_captcha" type="text" name="mobile_captcha" value="" autocomplete="off" />
+						        </p>
+						        <button id="btn_get_mobile_captcha" type="button" class="btn btn-orange" style="float: left;margin-left: 204px;margin-top: -38px; +margin-top: -39px;width: 126px; font-size: 14px; height: 38px; font-weight: bold;position:relative;+margin-left:200px;">点此获取验证码</button>
+                                <div class="error_msg" style="margin-top: 5px;margin-left: 35px;margin-right: 30px;line-height: 20px;color: #F60C0C;font-size: 13px">
+                                </div>
+                                <input type="button" class="btn" style="margin-top: 5px;" id="PostSubmit2" name="submit" value="快速注册"/>
+                            </form>
+                    </div>
+                    <div class="two">
+                            <img src="login/static/assets/bd/key.png" alt="" class="key"/>
+                            <p th:if="${loginError}" class="error">Wrong user or password</p>
+                            <form th:action="@{/login}" method="post">
+                                <p>
+                                   <span class="span">
+                                       <img src="login/static/assets/bd/phone-ico.png" alt="" class="phone-ico"/>&nbsp;&nbsp;&nbsp;手机号
+                                   </span>
+                                    <input id="username" type="text" name="username" class="phone-input" placeholder="手机号码" style="width:186px;+width:182px;"/>
+                                </p>
+                                <p>
+                                   <span class="span" style="display:block;margin-top:12px">
+                                       <img src="login/static/assets/bd/psd-ico.png" alt="" class="phone-ico"/>&nbsp;&nbsp;&nbsp;密码
+                                   </span>
+                                    <input id="password" type="password" name="password" class="pad-input" placeholder="密码" style="width:186px;+width:181px;margin-top:-40px;+margin-top:-35px;margin-left:113px;+margin-left:80px;border:0;outline:0;"/>
+                                </p>
+                                <p class="yzm-p">
+                                   <span class="yz-span">
+                                       <img src="login/static/assets/bd/yzm-ico.png" alt="" class="yzm-ico"/>
+                                   </span>
+                                    <input class="yzm-input" maxlength="4" id="verifyCode"  type="text" name="verifyCode" value="" autocomplete="off"/>
+                                    <img id="verifyPic" name="verifyPic2" width="95" height="38" src="" style="float: left;margin-left: 170px; margin-top: -37px; +margin-top: -38px"/>
+                                </p>
+                                <div id="errmsg" style="height: 20px;padding-left: 40px;padding-top: 10px;color: #F60C0C;font-size: 15px;">
+                                                                </div>
+                                <button id="login" class="btn" type="submit" style="margin-top: 24px;">登 录</button>
+                                <br/>
+                                <a href="login/bd/password/find.html" class="forget-pwsd">忘记密码</a>
+                            </form>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

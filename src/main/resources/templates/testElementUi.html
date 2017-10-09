@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-default/index.css"/>
+
+</head>
+<body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <div id="app">
+        <my-component></my-component>
+    </div>
+<script type="text/x-template" id="upload-file-template">
+    <el-upload action="element/file/uploadFile" list-type="picture-card" :on-preview="handlePictureCardPreview" :on-remove="handleRemove">
+        <i class="el-icon-plus"></i>
+    </el-upload>
+    <el-dialog v-model="dialogVisible" size="tiny">
+        <img width="100%" :src="dialogImageUrl" />
+    </el-dialog>
+</script>
+    <script>
+        var Main = {
+            template: "#upload-file-template",
+            data() {
+                return {
+                    dialogImageUrl: '',
+                    dialogVisible: false
+                };
+            },
+            methods: {
+                handleRemove(file, fileList) {
+                    console.log(file, fileList);
+                },
+                handlePictureCardPreview(file) {
+                    this.dialogImageUrl = file.url;
+                    this.dialogVisible = true;
+                }
+            }
+        }
+        Vue.component('my-component', Main);
+        new Vue({
+            el: "#app"
+        });
+    </script>
+
+
+</body>
+
+</html>

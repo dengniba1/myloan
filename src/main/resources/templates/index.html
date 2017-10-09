@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
+        <title>Hello Spring Security</title>
+        <meta charset="utf-8" />
+        <title>融迅</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link href="/bootstrap/css/buttons.css" th:href="@{/bootstrap/css/buttons.css}" rel="stylesheet"/>
+
+        <!-- Custom styles for this template -->
+        <link href="/bootstrap/css/navbar-fixed-top/navbar-fixed-top.css" th:href="@{/bootstrap/css/navbar-fixed-top/navbar-fixed-top.css}" rel="stylesheet"/>
+    </head>
+    <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">融迅</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">首页</a></li>
+                    <li><a href="#about">信用贷款</a></li>
+                    <li><a href="#contact">按揭抵押贷款</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../navbar/">信贷经理入驻</a></li>
+                    <li><a href="/logins">信贷经理登录</a></li>
+                    <li class="active"><a href="">Fixed top <span class="sr-only">(current)</span></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-6 column">
+                <a href="/product/input_product" class="button button-block button-pill button-raised button-primary">找我的贷款专员</a>
+                <a href="/product/input_product" class="button button-block button-pill button-raised button-highlight">找我的理财专员</a>
+            </div>
+            <div class="col-md-6 column">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..."/>
+                    <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+                </div><!-- /input-group -->
+                <p>
+                    <em>Git</em>是一个分布式的版本控制系统，最初由<strong>Linus Torvalds</strong>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="col-md-12 column">
+            <div class="carousel slide" id="carousel-736649">
+                <ol class="carousel-indicators">
+                    <li class="active" data-slide-to="0" data-target="#carousel-736649">
+                    </li>
+                    <li data-slide-to="1" data-target="#carousel-736649">
+                    </li>
+                    <li data-slide-to="2" data-target="#carousel-736649">
+                    </li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img alt="" src="/img/1.jpg" />
+                        <div class="carousel-caption">
+                            <h4>
+                                棒球
+                            </h4>
+                            <p>
+                                棒球运动是一种以棒打球为主要特点，集体性、对抗性很强的球类运动项目，在美国、日本尤为盛行。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="" src="/img/2.jpg" />
+                        <div class="carousel-caption">
+                            <h4>
+                                冲浪
+                            </h4>
+                            <p>
+                                冲浪是以海浪为动力，利用自身的高超技巧和平衡能力，搏击海浪的一项运动。运动员站立在冲浪板上，或利用腹板、跪板、充气的橡皮垫、划艇、皮艇等驾驭海浪的一项水上运动。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img alt="" src="/img/3.jpg" />
+                        <div class="carousel-caption">
+                            <h4>
+                                自行车
+                            </h4>
+                            <p>
+                                以自行车为工具比赛骑行速度的体育运动。1896年第一届奥林匹克运动会上被列为正式比赛项目。环法赛为最著名的世界自行车锦标赛。
+                            </p>
+                        </div>
+                    </div>
+                </div> <a data-slide="prev" href="#carousel-736649" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-736649" class="right carousel-control">›</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="col-md-8 column">
+            <div class="media">
+                <a href="#" class="pull-left"><img src="img/a_002.jpg" class="media-object" alt='' /></a>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        嵌入媒体标题
+                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                </div>
+            </div>
+            <div class="media">
+                <a href="#" class="pull-left"><img src="img/a_002.jpg" class="media-object" alt='' /></a>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        嵌入媒体标题
+                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 column">
+            <div class="tabbable" id="tabs-288500">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#panel-860652">第一部分</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#panel-489736">第二部分</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="panel-860652">
+                        <p>
+                            第一部分内容.
+                        </p>
+                    </div>
+                    <div class="tab-pane" id="panel-489736">
+                        <p>
+                            第二部分内容.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="/js/jquery-1.8.3.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>

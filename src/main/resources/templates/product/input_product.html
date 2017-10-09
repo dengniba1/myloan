@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>产品录入</title>
+
+    <link href="/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link href="/product/product.css" th:href="@{/product/input_product.css}" rel="stylesheet"/>
+    <link href="/cropper/cropper.min.css" th:href="@{/cropper/cropper.min.css}" rel="stylesheet"/>
+    <link href="/upload_img/upload_img.css" th:href="@{/upload_img/upload_img.css}" rel="stylesheet"/>
+</head>
+<body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
+    <div class="container" id="crop-avatar">
+        <div id="app">
+            <my-component></my-component>
+        </div>
+<script src="/product/testElement.js"></script>
+        <!-- Current avatar -->
+        <!--<div class="avatar-view" title="Change the avatar">
+            <img id="account_photo" src="" alt="Avatar" />
+        </div>
+
+        &lt;!&ndash; Cropping modal &ndash;&gt;
+        <div class="modal fade" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <form class="avatar-form" action="/file/updateuserlogo" enctype="multipart/form-data" method="post">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title" id="avatar-modal-label">Change Avatar</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="avatar-body">
+
+                                &lt;!&ndash; Upload image and data &ndash;&gt;
+                                <div class="avatar-upload">
+                                    <input type="hidden" class="avatar-src" name="avatar_src" />
+                                    <input type="hidden" class="avatar-data" name="avatar_data" />
+                                    <label for="avatarInput">Local upload</label>
+                                    <input type="file" class="avatar-input" id="avatarInput" name="avatar_file" />
+                                </div>
+
+                                &lt;!&ndash; Crop and preview &ndash;&gt;
+                                <div class="row">
+                                    <div class="avatar-wrapper"></div>
+                                </div>
+
+                                <div class="row avatar-btns">
+                                    <div class="col-md-9">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" class="btn btn-primary btn-block avatar-save">Done</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        &lt;!&ndash; <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div> &ndash;&gt;
+                    </form>
+                </div>
+            </div>
+        </div>&lt;!&ndash; /.modal &ndash;&gt;
+
+        &lt;!&ndash; Loading state &ndash;&gt;
+        <div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>-->
+    </div>
+
+
+    <form id="product_form" class="form-horizontal">
+        <fieldset class="input_fieldset">
+            <div id="legend" class="">
+                <legend class="">产品录入</legend>
+            </div>
+
+            <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="product_name">产品名称</label>
+                <div class="controls">
+                    <input id="product_name" type="text" placeholder="产品名称" class="input-xlarge" />
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <div class="control-group">
+
+                <!-- Text input-->
+                <label class="control-label" for="minAge">申请人年龄范围</label>
+                <div class="controls">
+                    <input id="minAge" type="text" class="input-xlarge" />-
+                    <input id="maxAge" type="text" class="input-xlarge" />
+                    <p class="help-block"></p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">需要的基本材料</label>
+
+                <!-- Multiple Checkboxes -->
+                <div class="controls">
+                    <!-- Inline Checkboxes -->
+                    <label class="checkbox-inline">
+                        <input id='isRequireID' name='base_data' type="checkbox" value="isRequireID" />
+                        身份证
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequirePremisesPermit' name='base_data' type="checkbox" value="isRequirePremisesPermit" />
+                        房产证
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequireQCCQZ' name='base_data' type="checkbox" value="isRequireQCCQZ" />
+                        汽车产权证
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequireMarriageCertificate' name='base_data' type="checkbox" value="isRequireMarriageCertificate" />
+                        结婚证
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequireDivorceCertificate' name='base_data' type="checkbox" value="isRequireDivorceCertificate" />
+                        离婚证
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequireProofOfIncome' name='base_data' type="checkbox" value="isRequireProofOfIncome" />
+                        收入证明
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequireContinual6Month' name='base_data' type="checkbox" value="isRequireContinual6Month" />
+                        6个月打卡工资银行流水
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequirePolicy' name='base_data' type="checkbox" value="isRequirePolicy" />
+                        保单
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequirePreSaleContract' name='base_data' type="checkbox" value="isRequirePreSaleContract" />
+                        预售合同
+                    </label>
+                    <label class="checkbox-inline">
+                        <input id='isRequireTax' name='base_data' type="checkbox" value="isRequireTax" />
+                        税单
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">申请天数</label>
+
+                <!-- Multiple Checkboxes -->
+                <div class="controls">
+                    <!-- Inline Checkboxes -->
+                    <input id="minLoanDay" type="text" class="input-xlarge" />-
+                    <input id="maxLoanDay" type="text" class="input-xlarge" />
+                </div>
+
+            </div>
+
+
+            <div class="control-group">
+                <label class="control-label">社保</label>
+                <div class="controls">
+                    <!-- Inline Radios -->
+                    <label class="radio-inline">
+                        <input type="radio" value="true" name="needSociaIlnsurance" checked="checked" />
+                        有要求
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="false" name="needSociaIlnsurance" />
+                        无要求
+                    </label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">公积金</label>
+                <div class="controls">
+                    <!-- Inline Radios -->
+                    <label class="radio-inline">
+                        <input type="radio" value="true" name="needFund" checked="checked" />
+                        有要求
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="false" name="needFund" />
+                        无要求
+                    </label>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    <div class="control-group">
+        <label class="control-label"></label>
+
+        <!-- Button -->
+        <div class="controls">
+            <button id="product_input" class="btn btn-success">点击申请</button>
+        </div>
+    </div>
+    <script src="/product/testElement.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+    <script src="/js/jquery-1.8.3.js"></script>
+    <script src="/product/product.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/cropper/cropper.min.js"></script>
+    <script src="/upload_img/upload_img.js"></script>
+</body>
+</html>

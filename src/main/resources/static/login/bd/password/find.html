@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>融360金融直销平台</title>
+<meta content="融360为各种贷款机构提供强大的金融直销平台，融360大批量的用户推广，精准的用户筛选，轻松获取高质量贷款用户，从此营销不再困难。" name="description">
+<link href="../../static/styles/bd_main.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../static/styles/style.css"/>
+<link type="text/css" href="../../static/styles/bd_register.css" rev="stylesheet" rel="stylesheet">
+<link href="../../static/styles/bd_findpassword.css" rel="stylesheet" />
+<script type="text/javascript" src="../../static/js/jquery-1.7.1.js"></script>
+
+</head>
+<body>
+	<div id="header">
+	    <div class="header">
+	        <div id="logo" >
+			    <span class="logo"><a href="http://www.rong360.com"><img src="../../static/assets/bd/bd-logo-blue.png" /></a></span>
+				<h2>找回密码</h2>
+			</div>
+		</div>
+	</div>
+    <div id="main">
+	   
+<div class="Repswd-top">
+    <ol>
+        <li><span style="background: url('../../static/assets/bd/red-dot.png') no-repeat;">1</span>输入手机号<img src="../../static/assets/bd/point.png" alt=""/></li>
+        <li><span >2</span>验证手机号 <img src="../../static/assets/bd/point.png" alt=""/></li>
+        <li><span >3</span>重置密码 <img src="../../static/assets/bd/point.png" alt=""/></li>
+        <li><span >4</span>重置密码成功</li>
+    </ol>
+</div>
+<div class="clear"></div>
+
+		
+		    <form name="form" id="form" class="narrow" method="post" action="" onsubmit="return checkForm();">
+			    <input type="hidden" name="FindPass[step]" value="1"/>
+				<div class="fieldset">				   
+				    <div class="simple_line">
+					   <label class="strong" style="width:5em" >手机号码</label>
+					   <div class="simple_line_right">
+				           <input id="text_phone" name="FindPass[mobile]" class="input_text" maxlength="20" >
+						   <div id="text_phone_error" class="error" style="display:none;">请输入手机号码</div>
+						   						</div>
+				    </div>
+					<div class="simple_line" id="verify_img" >
+					    <label class="strong" style="width:5em" >验证码&nbsp;&nbsp;</label>
+						<input id="img_vcode" name="FindPass[verifyCode]" class="input_text" style="width:80px" value="">
+					    <img id="yw0" src="captcha.html-v=591086fa632f8.png" alt="" />						<div id="img_vcode_empty" class="error" style="margin-top:-40px;display:none">请输入验证码</div>
+											</div>
+					<div class="hr_dashed"></div>
+					<input class="next" type="submit" value="下一步"/>
+				</div>
+			</form>
+        </div>
+		<div class="clear"></div>
+<div id="footer" style="display:none">
+    <a href="http://www.rong360.com/about" target="_blank">关于融360</a> | <a href="../../../login.html" target="_blank">信贷经理入驻</a> | <a href="http://www.rong360.com/about/contact.html" target="_blank">联系我们</a> | <a href="http://www.rong360.com/about/disclaimer.html" target="_blank">免责声明</a> | <a href="http://www.rong360.com/about/feedback.html" target="_blank">建议与投诉</a><br />
+Copyright &copy;2017 Rong360.com Inc. All Rights Reserved.<span style="padding-left:10px;"><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备12000680号-1</a></span><span style="padding-left:10px;">京公网安备110108008323号</span> 
+</div>
+
+<script src="../../static/scripts/jquery.stripe.js"></script>
+<script src="../../static/scripts/jquery.resize.min.js"></script>
+<script type="text/javascript" src="../../static/bd/js/improve_tips-v=20140120153811212.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    improve_tips.show_tips();
+    $('.tb-list tbody tr').stripe();
+    if ('undefined' != typeof(config)  && config.unread_count && config.unread_count > 0)
+    {
+        $('#unread-count').html('(' + config.unread_count + ')').show();
+    }
+    $('#main').height($('#rightmain').height());
+    $('#footer').show();
+    $('#rightmain').resize(function(){
+        $('#main').height($('#rightmain').height());
+    });
+
+    $('img').each(function(){
+        var img = $(this);
+        var def = img.attr('def');
+        //console.log(def);
+        if (def && def.length > 0)
+        {
+            img.bind('error', function(){
+                var src = '//static.rong360.com/img/' + def;
+                img.attr('src', src);
+                img.unbind('error');
+            });
+        }
+    });
+
+    
+    /** online servie */
+    $("#floatShow").bind("mouseover",function(){
+        $("#onlineService").animate({
+            width:"180px", opacity:"show"
+        }, "normal" ,function(){
+        });
+        
+        $("#floatShow").hide();
+        $("#floatHide").show();
+    });
+    
+    $("#floatHide").bind("mouseout",function(){
+        $("#onlineService").animate({
+            width:"0", opacity:"hide"
+        }, "normal" ,function(){
+        });
+       
+        $("#floatShow").show();
+        $("#floatHide").hide();
+    });
+
+});
+</script>
+
+</body>
+
+<script>
+function checkForm()
+{
+	if($('#text_phone').val()=='')
+	{ 
+		$('#text_phone_error').html('请输入手机号');
+		$('#text_phone_error').show();
+		if($('#text_phone_error_'))
+		{
+			$('#text_phone_error_').hide();
+		}
+		$('#text_phone').focus();
+		 $('#img_vcode_empty').hide();
+		 if($('#img_vcode_error_'))
+		 {
+			 $('#img_vcode_error_').hide();
+		 }
+		return false;
+	}
+//	var patternMobile= /^1[3|4|5|7|8][0-9]{9}$/g ;
+	var mobile=$('#text_phone').val();
+	if(! /^1[3|4|5|7|8|9]\d{9}$/.test(mobile) )
+	{   
+		$('#text_phone_error').html('请输入正确格式的手机号');
+		$('#text_phone_error').show();
+		if($('#text_phone_error_'))
+		{
+			$('#text_phone_error_').hide();
+		}
+		$('#text_phone').focus();
+		 $('#img_vcode_empty').hide();
+		 if($('#img_vcode_error_'))
+		 {
+			 $('#img_vcode_error_').hide();
+		 }
+		return false;
+	}
+	if($('#img_vcode').val()=='')
+	{
+        $('#img_vcode_empty').html('请输入验证码');
+        $('#img_vcode_empty').show();
+		if($('#img_vcode_error_'))
+		{
+            $('#img_vcode_error_').hide();
+		}
+		$('#img_vcode').focus();
+		$('#text_phone_error').hide();
+		 if($('#text_phone_error_'))
+		 {
+			 $('#text_phone_error_').hide();
+		 }
+
+		return false;
+	
+	}
+	var vcode=$('#img_vcode').val();
+	var re=new RegExp("[\x21-\x40]+");
+	len1=re.test(vcode);
+	re=new RegExp("[0-9]+");
+	len2=re.test(vcode);
+	if(len2||len1){
+		$('#img_vcode_empty').html('输入验证码中包含特殊字符或数字');
+		$('#img_vcode_empty').show();
+		if($('#img_vcode_error_'))
+		{
+			$('#img_vcode_error_').hide();
+		}
+		$('#img_vcode').focus();
+		$('#text_phone_error').hide();
+		if($('#text_phone_error_'))
+		{
+			$('#text_phone_error_').hide();
+		}
+		return false;
+	}
+	if(vcode.length!=4){
+		$('#img_vcode_empty').html('验证码长度错误，请重新输入');
+		$('#img_vcode_empty').show();
+		if($('#img_vcode_error_'))
+		{
+			$('#img_vcode_error_').hide();
+		}
+		$('#img_vcode').focus();
+		$('#text_phone_error').hide();
+		if($('#text_phone_error_'))
+		{
+			$('#text_phone_error_').hide();
+		}
+		return false;
+	}
+
+	return true;
+}
+
+</script>
+
+</html>
