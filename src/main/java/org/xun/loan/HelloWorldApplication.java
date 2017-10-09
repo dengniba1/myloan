@@ -42,6 +42,7 @@ public class HelloWorldApplication extends SpringBootServletInitializer {
 	@Bean
 	public MainAppAuthenticationSuccessHandler getMainAppAuthenticationSuccessHandler(AccountRepository accountRepository, UserOptionRepository userOptionRepository) {
 		return new MainAppAuthenticationSuccessHandler(accountRepository, userOptionRepository);
+
 	}
 
 }
